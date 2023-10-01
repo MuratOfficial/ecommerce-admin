@@ -29,7 +29,7 @@ import * as z from "zod";
 const formSchema = z.object({
   label: z.string().min(1),
   imageUrl: z.string().min(1),
-  description: z.string().min(1),
+  description: z.string().min(1).max(120),
 });
 
 type BillboardFormValues = z.infer<typeof formSchema>;
