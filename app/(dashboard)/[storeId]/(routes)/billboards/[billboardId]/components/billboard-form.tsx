@@ -15,6 +15,7 @@ import { Heading } from "@/components/ui/heading";
 import ImageUpload from "@/components/ui/image-upload";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Billboard } from "@prisma/client";
 import axios from "axios";
@@ -28,6 +29,7 @@ import * as z from "zod";
 const formSchema = z.object({
   label: z.string().min(1),
   imageUrl: z.string().min(1),
+  description: z.string().min(1),
 });
 
 type BillboardFormValues = z.infer<typeof formSchema>;
@@ -55,6 +57,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
     defaultValues: initialData || {
       label: "",
       imageUrl: "",
+      description: "",
     },
   });
 
@@ -156,6 +159,19 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
                       placeholder="Billboard label"
                       {...field}
                     />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Decription</FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Type description here" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
