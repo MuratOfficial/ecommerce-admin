@@ -1,4 +1,4 @@
-import ClientNav from "@/components/client/client-nav";
+import ClientHeader from "@/components/client/client-header";
 import PhotoCollage from "@/components/client/photo-collage";
 import PopularCategory from "@/components/client/popular-category";
 import ProcessChain from "@/components/client/process-chain";
@@ -7,8 +7,8 @@ import React from "react";
 
 function HomePage() {
   return (
-    <div>
-      <ClientNav />
+    <div className="">
+      <ClientHeader />
       <PhotoCollage />
       <PopularCategory />
       <ProductLinks />
