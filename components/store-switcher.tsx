@@ -48,7 +48,7 @@ function StoreSwitcher({ className, items = [] }: StoreSwitcherProps) {
   const [open, setOpen] = useState(false);
 
   const onStoreSelect = (store: { value: string; label: string }) => {
-    setOpen(false), router.push(`/${store.label}`);
+    setOpen(true), router.push(`/${store.value}`);
   };
 
   return (
